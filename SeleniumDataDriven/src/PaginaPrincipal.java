@@ -42,7 +42,6 @@ public class PaginaPrincipal extends AbstractPageObject {
 	 */
 	public List<String> titleOfProducts() {
 		List<String> listaProductos = new ArrayList<String>();
-		// ul[@class='pagination']//a[.='2']
 		int cantidadPaginado = driver.findElements(By.xpath("//ul[@class='pagination']//a")).size();
 
 		for (int i = 1; i < cantidadPaginado; i++) {

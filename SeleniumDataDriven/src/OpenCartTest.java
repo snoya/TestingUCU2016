@@ -1,5 +1,4 @@
 import static org.junit.Assert.assertEquals;
-
 import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -69,13 +68,21 @@ public class OpenCartTest {
 	}
 
 	@Test
-	public void testVerificarTitulos() {
+	public void testVerificarTitulo() {
 		PaginaPrincipal pagPrincipal = new PaginaPrincipal(driver);
 		pagPrincipal.obtenerPagina();
 		Buscador buscador = pagPrincipal.searchProduct(titulo);
-		assertEquals(titulo, buscador.titleOfFirstProduct());
+		assertEquals(titulo, buscador.titleOfFirstProduct());		
+	}
+
+	@Test
+	public void testVerificarTituloAlAcceder() {
+		PaginaPrincipal pagPrincipal = new PaginaPrincipal(driver);
+		pagPrincipal.obtenerPagina();
+		Buscador buscador = pagPrincipal.searchProduct(titulo);
+		buscador.titleOfFirstProduct();
 		PaginaProducto pagProducto = buscador.accederAlPrimerProducto();
-		assertEquals(titulo, pagProducto.titleOfProduct());	
+		assertEquals(titulo, pagProducto.titleOfProduct());
 	}
 
 	@After
